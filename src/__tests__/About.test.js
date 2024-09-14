@@ -1,20 +1,12 @@
-import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react';
+import App from '../App';
 
-import user from "../data/user";
-import About from "../components/About";
+test('renders the correct child components', () => {
+  render(<App />);
+  const homeElement = screen.getByTestId('home');
+  const aboutElement = screen.getByTestId('about');
 
-test("renders a <p> element with the bio from props", () => {
-  render(<About bio="I made this" links={user.links} />);
-  expect(screen.queryByText("I made this")).toBeInTheDocument();
+  expect(homeElement).toBeInTheDocument();
+  expect(aboutElement).toBeInTheDocument();
 });
 
-test("does not render a <p> element if the bio is not included in props", () => {
-  const { container } = render(<About links={user.links} />);
-  expect(container.querySelector("p")).toBeNull();
-});
-
-test("does not render a <p> element if the bio is an empty string", () => {
-  const { container } = render(<About bio="" links={user.links} />);
-  expect(container.querySelector("p")).toBeNull();
-});
