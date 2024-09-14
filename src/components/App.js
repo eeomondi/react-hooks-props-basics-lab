@@ -3,7 +3,6 @@ import Home from './Home';
 import About from './About';
 
 const App = () => {
-  // Example user object
   const user = {
     name: 'John Doe',
     age: 30,
@@ -15,21 +14,29 @@ const App = () => {
 
   return (
     <div>
-      <Home
-        name={user.name}
-        age={user.age}
-        location={user.location}
-      />
-      <About
-        bio={user.bio}
-        github={user.github}
-        linkedin={user.linkedin}
-      />
+      <nav>
+        {/* Add your navigation here if needed */}
+      </nav>
+      <div id="home">
+        <Home
+          name={user.name}
+          age={user.age}
+          location={user.location}
+        />
+      </div>
+      <div id="about">
+        <About
+          bio={user.bio}
+          github={user.github}
+          linkedin={user.linkedin}
+        />
+      </div>
     </div>
   );
 };
 
 export default App;
+
 
 /*import React from "react";
 import NavBar from "./NavBar";
